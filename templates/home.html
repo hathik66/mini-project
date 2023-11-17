@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Stock Market Web App</title>
+</head>
+<body>
+    <header>
+        <h1>Stock Market Web App</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/analyze">Analyze</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="/add_stock">Add Stock</a></li>
+            <li><a href="/user_stock">user stock</a></li>
+
+
+            
+
+            <!-- Add more buttons as needed -->
+        </ul>
+    </nav>
+
+    <main>
+        <section id="analyze">
+            <h2>Analyze</h2>
+            <p>Perform stock analysis here.</p>
+            <button>Start Analyzing</button>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Learn more about our team and mission.</p>
+            <button>Read More</button>
+        </section>
+
+        <!-- Add more sections and buttons for other features -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Stock Market Web App</p>
+    </footer>
+</body>
+</html>

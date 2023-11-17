@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock App</title>
+</head>
+<body>
+    <h1>Available Stocks</h1>
+    <ul>
+        {% for stock in available_stocks %}
+            <li>{{ stock.company_name }} - <button onclick="addStock('{{ stock.id }}')">Add to Profile</button></li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function addStock(stockId) {
+            fetch('/add_stock', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `stock_id=${stockId}`,
+            })
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
