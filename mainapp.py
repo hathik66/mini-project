@@ -78,6 +78,52 @@ def register():
             elif not username or not password or not email:
                 msg = 'Please fill out the form!'
             else:
+                cursor.execute(f"""
+    CREATE TABLE IF NOT EXISTS {username}_metrics (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        stock_id INT,
+        Volume FLOAT,
+        Open FLOAT,
+        High FLOAT,
+        Low FLOAT,
+        Close FLOAT,
+        Drop_8_percent FLOAT,
+        Big_sell_off FLOAT,
+        Extension_from_base_price FLOAT,
+        Price_run_up FLOAT,
+        Stock_split FLOAT,
+        Good_news FLOAT,
+        New_highs FLOAT,
+        Distribution FLOAT,
+        Full_retracement FLOAT,
+        Optimism FLOAT,
+        Two_point_gap FLOAT,
+        No_rally FLOAT,
+        QEPS FLOAT,
+        Second_member FLOAT,
+        Rumors FLOAT,
+        Way_down FLOAT,
+        Drop_12_15_percent FLOAT,
+        One_day_price_drop FLOAT,
+        Poor_rally FLOAT,
+        Key_price_support_area FLOAT,
+        Up_Down FLOAT,
+        Second_confirmation FLOAT,
+        Post_analysis FLOAT,
+        Support_level FLOAT,
+        Week_projection FLOAT,
+        Upper_channel_line FLOAT,
+        Third_or_fourth_stage_base FLOAT,
+        Wide_and_loose FLOAT,
+        Moving_average_200_day FLOAT,
+        Largest_weekly_volume FLOAT,
+        MA_200_day_price_line FLOAT,
+        Downtrend FLOAT,
+        Poor_relative_strength FLOAT
+    )
+""")
+
+
                 cursor.execute('INSERT INTO accounts (username, password, email) VALUES (%s, %s, %s)', (username, password, email,))
                 mysql.commit()
                 msg = 'You have successfully registered!'
